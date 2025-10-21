@@ -1,0 +1,407 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant neon (&:is(.neon *));
+@custom-variant government (&:is(.government *));
+
+:root {
+  /* Default (Government/Professional) Theme */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.08 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.08 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.08 0 0);
+  --primary: oklch(0.35 0.18 230);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.4 0.12 140);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.35 0 0);
+  --accent: oklch(0.45 0.25 25);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0 0);
+  --input: oklch(0.98 0 0);
+  --ring: oklch(0.35 0.18 230);
+  --chart-1: oklch(0.35 0.18 230);
+  --chart-2: oklch(0.45 0.25 25);
+  --chart-3: oklch(0.4 0.12 140);
+  --chart-4: oklch(0.5 0.2 200);
+  --chart-5: oklch(0.3 0.2 280);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.96 0 0);
+  --sidebar-foreground: oklch(0.08 0 0);
+  --sidebar-primary: oklch(0.35 0.18 230);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.45 0.25 25);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.88 0 0);
+  --sidebar-ring: oklch(0.35 0.18 230);
+  
+  --font-sans: var(--font-poppins), "Poppins", sans-serif;
+}
+
+/* Neon/Futuristic Theme */
+.neon {
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.7 0.25 260); /* Neon Blue */
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.6 0.3 200); /* Cyan */
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.65 0.25 285); /* Electric Purple */
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.6 0.25 15);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.15 0.1 260);
+  --input: oklch(0.1 0 0);
+  --ring: oklch(0.7 0.25 260);
+  --chart-1: oklch(0.7 0.25 260);
+  --chart-2: oklch(0.65 0.25 285);
+  --chart-3: oklch(0.6 0.3 200);
+  --chart-4: oklch(0.55 0.25 180);
+  --chart-5: oklch(0.6 0.25 300);
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.7 0.25 260);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.65 0.25 285);
+  --sidebar-accent-foreground: oklch(0.05 0 0);
+  --sidebar-border: oklch(0.15 0.1 260);
+  --sidebar-ring: oklch(0.7 0.25 260);
+}
+
+/* Government/Professional Theme */
+.government {
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.08 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.08 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.08 0 0);
+  --primary: oklch(0.35 0.18 230);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.4 0.12 140);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.35 0 0);
+  --accent: oklch(0.45 0.25 25);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0 0);
+  --input: oklch(0.98 0 0);
+  --ring: oklch(0.35 0.18 230);
+  --chart-1: oklch(0.35 0.18 230);
+  --chart-2: oklch(0.45 0.25 25);
+  --chart-3: oklch(0.4 0.12 140);
+  --chart-4: oklch(0.5 0.2 200);
+  --chart-5: oklch(0.3 0.2 280);
+  --sidebar: oklch(0.96 0 0);
+  --sidebar-foreground: oklch(0.08 0 0);
+  --sidebar-primary: oklch(0.35 0.18 230);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.45 0.25 25);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.88 0 0);
+  --sidebar-ring: oklch(0.35 0.18 230);
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), "Poppins", sans-serif;
+  --font-mono: "ui-monospace", "SFMono-Regular", "Consolas", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Enhanced Neon Animations */
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px rgba(0, 191, 255, 0.8),
+      0 0 10px rgba(0, 191, 255, 0.6),
+      0 0 15px rgba(0, 191, 255, 0.4),
+      0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px rgba(0, 191, 255, 1),
+      0 0 20px rgba(0, 191, 255, 0.8),
+      0 0 30px rgba(0, 191, 255, 0.6),
+      0 0 40px rgba(139, 92, 246, 0.4);
+  }
+}
+
+@keyframes glow-border {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(0, 191, 255, 0.3),
+      inset 0 0 10px rgba(0, 191, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(0, 191, 255, 0.6),
+      inset 0 0 20px rgba(0, 191, 255, 0.2);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -50px) scale(1.1) rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9) rotate(180deg);
+  }
+  75% {
+    transform: translate(50px, 30px) scale(1.05) rotate(270deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon .glass {
+  background: rgba(0, 191, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+.government .glass {
+  background: rgba(64, 123, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(64, 123, 255, 0.1);
+}
+
+/* Custom utility classes */
+.neon-text {
+  animation: neon-glow 3s ease-in-out infinite;
+}
+
+.neon-border {
+  animation: glow-border 3s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Accessibility */
+- **Keyboard Navigation**: Full keyboard support
+- **Screen Readers**: Proper ARIA labels
+- **Color Contrast**: WCAG compliant
+- **Reduced Motion**: Respects user preferences
+
+/* Scrollbar styling for neon theme */
+.neon ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.neon ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.neon ::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00bfff, #8b5cf6);
+  border-radius: 4px;
+}
+
+.neon ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00bfff, #8b5cf6);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+/* Selection styling */
+.neon ::selection {
+  background: rgba(0, 191, 255, 0.3);
+  color: white;
+}
+
+.government ::selection {
+  background: rgba(53, 90, 230, 0.2);
+  color: #1a202c;
+}
+
+/* Government theme specific enhancements */
+.government {
+  /* Enhanced text readability */
+  font-weight: 500;
+}
+
+.government h1,
+.government h2,
+.government h3,
+.government h4,
+.government h5,
+.government h6 {
+  font-weight: 600;
+  color: oklch(0.05 0 0);
+  letter-spacing: -0.025em;
+}
+
+.government p {
+  line-height: 1.7;
+  color: oklch(0.15 0 0);
+}
+
+.government .text-muted-foreground {
+  color: oklch(0.25 0 0) !important;
+}
+
+.government .text-foreground {
+  color: oklch(0.05 0 0) !important;
+}
+
+/* Enhanced button styling for government theme */
+.government button {
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.government button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced card styling for government theme */
+.government .bg-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid oklch(0.85 0 0);
+}
+
+.government .border {
+  border-color: oklch(0.85 0 0) !important;
+}
+
+/* Enhanced input styling for government theme */
+.government input,
+.government textarea {
+  border: 2px solid oklch(0.85 0 0);
+  background: oklch(0.995 0 0);
+  color: oklch(0.05 0 0);
+  font-weight: 500;
+}
+
+.government input:focus,
+.government textarea:focus {
+  border-color: oklch(0.35 0.18 230);
+  box-shadow: 0 0 0 3px rgba(53, 90, 230, 0.1);
+}
+
+/* Enhanced navbar for government theme */
+.government nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid oklch(0.85 0 0);
+}
+
+/* Professional gradients for government theme */
+.government .bg-gradient-to-r {
+  background: linear-gradient(90deg, oklch(0.35 0.18 230), oklch(0.4 0.12 140)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}

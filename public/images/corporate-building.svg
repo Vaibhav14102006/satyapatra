@@ -1,0 +1,94 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff"/>
+      <stop offset="100%" style="stop-color:#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bfff" stop-opacity="0.3"/>
+      <stop offset="100%" style="stop-color:#8b5cf6" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky Background -->
+  <rect width="400" height="300" fill="url(#skyBg)"/>
+  
+  <!-- Ground -->
+  <rect x="0" y="250" width="400" height="50" fill="#059669"/>
+  
+  <!-- Main Building -->
+  <rect x="100" y="100" width="200" height="150" fill="url(#buildingGrad)"/>
+  
+  <!-- Building Windows Grid -->
+  <g fill="url(#glassGrad)">
+    <!-- Floor 1 -->
+    <rect x="120" y="120" width="25" height="30" rx="2"/>
+    <rect x="155" y="120" width="25" height="30" rx="2"/>
+    <rect x="190" y="120" width="25" height="30" rx="2"/>
+    <rect x="225" y="120" width="25" height="30" rx="2"/>
+    <rect x="260" y="120" width="25" height="30" rx="2"/>
+    
+    <!-- Floor 2 -->
+    <rect x="120" y="160" width="25" height="30" rx="2"/>
+    <rect x="155" y="160" width="25" height="30" rx="2"/>
+    <rect x="190" y="160" width="25" height="30" rx="2"/>
+    <rect x="225" y="160" width="25" height="30" rx="2"/>
+    <rect x="260" y="160" width="25" height="30" rx="2"/>
+    
+    <!-- Floor 3 -->
+    <rect x="120" y="200" width="25" height="30" rx="2"/>
+    <rect x="155" y="200" width="25" height="30" rx="2"/>
+    <rect x="190" y="200" width="25" height="30" rx="2"/>
+    <rect x="225" y="200" width="25" height="30" rx="2"/>
+    <rect x="260" y="200" width="25" height="30" rx="2"/>
+  </g>
+  
+  <!-- Window Reflections -->
+  <g fill="#ffffff" opacity="0.3">
+    <rect x="122" y="122" width="8" height="26"/>
+    <rect x="157" y="122" width="8" height="26"/>
+    <rect x="192" y="122" width="8" height="26"/>
+    <rect x="227" y="122" width="8" height="26"/>
+    <rect x="262" y="122" width="8" height="26"/>
+  </g>
+  
+  <!-- Building Entrance -->
+  <rect x="175" y="220" width="50" height="30" fill="#1f2937"/>
+  <rect x="180" y="225" width="40" height="25" fill="url(#glassGrad)"/>
+  
+  <!-- SatyaPatra Sign -->
+  <rect x="140" y="105" width="120" height="15" fill="#00bfff"/>
+  <text x="200" y="116" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">SATYAPATRA</text>
+  
+  <!-- Security Features -->
+  <circle cx="130" cy="80" r="8" fill="#00bfff" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="270" cy="80" r="8" fill="#8b5cf6" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Side Buildings -->
+  <rect x="50" y="180" width="40" height="70" fill="#374151"/>
+  <rect x="320" y="160" width="40" height="90" fill="#374151"/>
+  
+  <!-- Trees -->
+  <circle cx="30" cy="230" r="20" fill="#059669"/>
+  <rect x="27" y="230" width="6" height="20" fill="#8b4513"/>
+  
+  <circle cx="370" cy="240" r="15" fill="#059669"/>
+  <rect x="368" y="240" width="4" height="15" fill="#8b4513"/>
+  
+  <!-- Clouds -->
+  <circle cx="80" cy="50" r="15" fill="white" opacity="0.8"/>
+  <circle cx="95" cy="50" r="18" fill="white" opacity="0.8"/>
+  <circle cx="110" cy="50" r="12" fill="white" opacity="0.8"/>
+  
+  <circle cx="280" cy="40" r="12" fill="white" opacity="0.8"/>
+  <circle cx="295" cy="40" r="15" fill="white" opacity="0.8"/>
+  <circle cx="310" cy="40" r="10" fill="white" opacity="0.8"/>
+</svg>

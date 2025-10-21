@@ -1,0 +1,62 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teamBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#teamBg)"/>
+  
+  <!-- Conference table -->
+  <ellipse cx="200" cy="180" rx="150" ry="40" fill="#6b7280" opacity="0.3"/>
+  
+  <!-- Team members -->
+  <!-- Person 1 -->
+  <circle cx="120" cy="140" r="18" fill="#fbbf24"/>
+  <rect x="105" y="158" width="30" height="35" fill="#1e40af"/>
+  
+  <!-- Person 2 -->
+  <circle cx="200" cy="130" r="18" fill="#f472b6"/>
+  <rect x="185" y="148" width="30" height="35" fill="#10b981"/>
+  
+  <!-- Person 3 -->
+  <circle cx="280" cy="140" r="18" fill="#a78bfa"/>
+  <rect x="265" y="158" width="30" height="35" fill="#f59e0b"/>
+  
+  <!-- Laptops on table -->
+  <rect x="140" y="170" width="40" height="25" fill="#374151" rx="3"/>
+  <rect x="145" y="175" width="30" height="15" fill="#111827"/>
+  
+  <rect x="220" y="170" width="40" height="25" fill="#374151" rx="3"/>
+  <rect x="225" y="175" width="30" height="15" fill="#111827"/>
+  
+  <!-- Documents -->
+  <rect x="80" y="175" width="30" height="20" fill="white" stroke="#cbd5e1"/>
+  <rect x="300" y="175" width="30" height="20" fill="white" stroke="#cbd5e1"/>
+  
+  <!-- Presentation screen -->
+  <rect x="50" y="50" width="300" height="60" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+  <rect x="55" y="55" width="290" height="50" fill="#111827"/>
+  
+  <!-- Screen content -->
+  <text x="200" y="75" text-anchor="middle" fill="#00bfff" font-size="14" font-weight="bold">SatyaPatra Security</text>
+  <text x="200" y="90" text-anchor="middle" fill="white" font-size="10">Email Threat Analysis Dashboard</text>
+  
+  <!-- Charts on screen -->
+  <rect x="70" y="95" width="60" height="8" fill="#10b981" opacity="0.8"/>
+  <rect x="140" y="95" width="40" height="8" fill="#f59e0b" opacity="0.8"/>
+  <rect x="190" y="95" width="20" height="8" fill="#dc2626" opacity="0.8"/>
+  
+  <!-- Government building in background -->
+  <rect x="350" y="80" width="45" height="80" fill="#64748b" opacity="0.3"/>
+  <rect x="355" y="85" width="10" height="15" fill="white" opacity="0.6"/>
+  <rect x="370" y="85" width="10" height="15" fill="white" opacity="0.6"/>
+  <rect x="385" y="85" width="10" height="15" fill="white" opacity="0.6"/>
+  
+  <!-- Flag -->
+  <rect x="360" y="70" width="20" height="12" fill="#ff7f00"/>
+  <rect x="360" y="76" width="20" height="4" fill="white"/>
+  <rect x="360" y="82" width="20" height="4" fill="#10b981"/>
+</svg>

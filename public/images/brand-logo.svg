@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00bfff"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shield Icon -->
+  <path d="M15 30 L25 20 L35 30 L35 45 L25 50 L15 45 Z" fill="url(#logoGrad)"/>
+  <path d="M20 30 L30 30 L30 40 L25 43 L20 40 Z" fill="white"/>
+  
+  <!-- Email Icon integrated -->
+  <rect x="22" y="32" width="6" height="4" rx="1" fill="url(#logoGrad)"/>
+  <path d="M22 32 L25 34 L28 32" stroke="white" stroke-width="0.5" fill="none"/>
+  
+  <!-- Brand Text -->
+  <text x="45" y="25" fill="url(#logoGrad)" font-family="Arial, sans-serif" font-size="16" font-weight="bold">SatyaPatra</text>
+  <text x="45" y="40" fill="#64748b" font-family="Arial, sans-serif" font-size="10">सत्यपत्र</text>
+  <text x="45" y="50" fill="#64748b" font-family="Arial, sans-serif" font-size="8">Email Security Platform</text>
+</svg>

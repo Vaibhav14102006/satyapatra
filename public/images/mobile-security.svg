@@ -1,0 +1,103 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="phoneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bfff"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Person Silhouette -->
+  <ellipse cx="200" cy="280" rx="80" ry="15" fill="#e2e8f0" opacity="0.5"/>
+  
+  <!-- Body -->
+  <rect x="180" y="200" width="40" height="80" rx="20" fill="#3b82f6"/>
+  
+  <!-- Head -->
+  <circle cx="200" cy="180" r="25" fill="#fbbf24"/>
+  
+  <!-- Arms -->
+  <rect x="150" y="210" width="25" height="8" rx="4" fill="#fbbf24"/>
+  <rect x="225" y="210" width="25" height="8" rx="4" fill="#fbbf24"/>
+  
+  <!-- Hands holding devices -->
+  <!-- Left Hand - Tablet -->
+  <rect x="120" y="205" width="35" height="25" rx="3" fill="url(#phoneBg)"/>
+  <rect x="125" y="210" width="25" height="15" rx="2" fill="#001122"/>
+  <rect x="127" y="212" width="21" height="11" fill="url(#screenGlow)" opacity="0.8"/>
+  
+  <!-- Right Hand - Phone -->
+  <rect x="245" y="208" width="18" height="30" rx="4" fill="url(#phoneBg)"/>
+  <rect x="248" y="212" width="12" height="20" rx="2" fill="#001122"/>
+  <rect x="249" y="214" width="10" height="16" fill="url(#screenGlow)" opacity="0.8"/>
+  
+  <!-- Mobile Security Icons around devices -->
+  <!-- Shield Icons -->
+  <g fill="#00bfff">
+    <path d="M135 195 L140 190 L145 195 L145 205 L140 210 L135 205 Z"/>
+    <path d="M253 195 L258 190 L263 195 L263 205 L258 210 L253 205 Z"/>
+  </g>
+  
+  <!-- Lock Icons -->
+  <rect x="132" y="200" width="4" height="6" rx="1" fill="#8b5cf6"/>
+  <circle cx="134" cy="198" r="1.5" fill="none" stroke="#8b5cf6" stroke-width="0.8"/>
+  
+  <rect x="255" y="200" width="4" height="6" rx="1" fill="#8b5cf6"/>
+  <circle cx="257" cy="198" r="1.5" fill="none" stroke="#8b5cf6" stroke-width="0.8"/>
+  
+  <!-- Email Security Notifications -->
+  <circle cx="110" cy="180" r="8" fill="#ef4444">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="110" y="184" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">!</text>
+  
+  <circle cx="280" cy="180" r="8" fill="#10b981">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="280" y="185" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">✓</text>
+  
+  <!-- Data Flow Lines -->
+  <path d="M140 220 Q200 170 260 220" stroke="#00bfff" stroke-width="2" fill="none" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,20;20,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Security Status Messages -->
+  <rect x="80" y="120" width="100" height="40" rx="8" fill="#10b981" opacity="0.9"/>
+  <text x="130" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">EMAIL SECURE</text>
+  <text x="130" y="148" text-anchor="middle" fill="white" font-family="Arial" font-size="7">No threats detected</text>
+  
+  <rect x="220" y="120" width="100" height="40" rx="8" fill="#f59e0b" opacity="0.9"/>
+  <text x="270" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">SCAN COMPLETE</text>
+  <text x="270" y="148" text-anchor="middle" fill="white" font-family="Arial" font-size="7">3 items reviewed</text>
+  
+  <!-- Floating Security Elements -->
+  <g opacity="0.7">
+    <!-- Wifi Signal -->
+    <path d="M50 100 Q70 80 90 100" stroke="#00bfff" stroke-width="2" fill="none"/>
+    <path d="M55 105 Q70 90 85 105" stroke="#00bfff" stroke-width="2" fill="none"/>
+    <path d="M60 110 Q70 100 80 110" stroke="#00bfff" stroke-width="2" fill="none"/>
+    <circle cx="70" cy="115" r="2" fill="#00bfff"/>
+    
+    <!-- Cloud Security -->
+    <circle cx="320" cy="60" r="12" fill="#8b5cf6" opacity="0.6"/>
+    <circle cx="335" cy="60" r="15" fill="#8b5cf6" opacity="0.6"/>
+    <circle cx="350" cy="60" r="10" fill="#8b5cf6" opacity="0.6"/>
+    <text x="335" y="65" text-anchor="middle" fill="white" font-family="Arial" font-size="8">☁</text>
+  </g>
+  
+  <!-- Mobile App Icons -->
+  <rect x="125" y="240" width="12" height="12" rx="2" fill="#00bfff"/>
+  <rect x="140" y="240" width="12" height="12" rx="2" fill="#8b5cf6"/>
+  <rect x="155" y="240" width="12" height="12" rx="2" fill="#10b981"/>
+  
+  <!-- App Labels -->
+  <text x="131" y="260" text-anchor="middle" fill="#64748b" font-family="Arial" font-size="6">Security</text>
+  <text x="146" y="260" text-anchor="middle" fill="#64748b" font-family="Arial" font-size="6">Email</text>
+  <text x="161" y="260" text-anchor="middle" fill="#64748b" font-family="Arial" font-size="6">Safe</text>
+</svg>

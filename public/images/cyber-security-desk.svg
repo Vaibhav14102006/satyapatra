@@ -1,0 +1,65 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151"/>
+      <stop offset="100%" style="stop-color:#1f2937"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bg)"/>
+  
+  <!-- Desk -->
+  <rect x="0" y="220" width="400" height="80" fill="#8b5cf6" opacity="0.1"/>
+  
+  <!-- Laptop screen -->
+  <rect x="100" y="120" width="200" height="120" rx="8" fill="url(#screen)" stroke="#64748b" stroke-width="2"/>
+  
+  <!-- Screen content - Email interface -->
+  <rect x="110" y="130" width="180" height="20" fill="#3b82f6" opacity="0.3"/>
+  <rect x="110" y="155" width="150" height="8" fill="#e2e8f0" opacity="0.7"/>
+  <rect x="110" y="170" width="120" height="8" fill="#e2e8f0" opacity="0.5"/>
+  <rect x="110" y="185" width="160" height="8" fill="#e2e8f0" opacity="0.6"/>
+  
+  <!-- Warning indicator -->
+  <circle cx="270" cy="140" r="8" fill="#ef4444"/>
+  <path d="M267 136 L273 142 M273 136 L267 142" stroke="white" stroke-width="2"/>
+  
+  <!-- Laptop base -->
+  <rect x="90" y="240" width="220" height="15" rx="8" fill="#374151"/>
+  
+  <!-- Coffee cup -->
+  <ellipse cx="350" cy="235" rx="15" ry="8" fill="#6b7280"/>
+  <rect x="340" y="225" width="20" height="20" rx="3" fill="#d1d5db"/>
+  <rect x="342" y="227" width="16" height="16" rx="2" fill="#374151"/>
+  
+  <!-- Phone with notification -->
+  <rect x="50" y="200" width="35" height="60" rx="8" fill="#1f2937" stroke="#64748b"/>
+  <circle cx="67" cy="210" r="3" fill="#ef4444"/>
+  
+  <!-- Floating security icons -->
+  <g opacity="0.6">
+    <!-- Shield -->
+    <path d="M320 80 C320 80 310 80 310 85 L310 95 C310 100 320 105 320 105 C320 105 330 100 330 95 L330 85 C330 80 320 80 320 80Z" 
+          fill="none" stroke="#10b981" stroke-width="2"/>
+    <path d="M316 90 L319 93 L324 88" stroke="#10b981" stroke-width="2" fill="none"/>
+    
+    <!-- Lock -->
+    <rect x="75" y="70" width="15" height="20" rx="3" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="82" cy="65" r="5" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+  
+  <!-- Glow effects -->
+  <circle cx="200" cy="180" r="100" fill="url(#glow)" opacity="0.1"/>
+  
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0%" style="stop-color:#00bfff"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+  </defs>
+</svg>

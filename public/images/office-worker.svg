@@ -1,0 +1,56 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="officeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#officeBg)"/>
+  
+  <!-- Office desk -->
+  <rect x="0" y="180" width="400" height="70" fill="#8b5563" opacity="0.3"/>
+  
+  <!-- Computer setup -->
+  <rect x="100" y="120" width="200" height="120" rx="8" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+  <rect x="110" y="130" width="180" height="100" fill="#111827"/>
+  
+  <!-- Screen content - Email dashboard -->
+  <rect x="115" y="135" width="170" height="20" fill="#1e40af" opacity="0.8"/>
+  <text x="200" y="147" text-anchor="middle" fill="white" font-size="10" font-family="Arial">Email Security Dashboard</text>
+  
+  <!-- Email items -->
+  <rect x="115" y="160" width="160" height="12" fill="#dc2626" opacity="0.2"/>
+  <circle cx="125" cy="166" r="3" fill="#dc2626"/>
+  <text x="135" y="169" fill="#374151" font-size="6">Phishing attempt detected</text>
+  
+  <rect x="115" y="175" width="160" height="12" fill="#f59e0b" opacity="0.2"/>
+  <circle cx="125" cy="181" r="3" fill="#f59e0b"/>
+  <text x="135" y="184" fill="#374151" font-size="6">Suspicious sender</text>
+  
+  <rect x="115" y="190" width="160" height="12" fill="#10b981" opacity="0.2"/>
+  <circle cx="125" cy="196" r="3" fill="#10b981"/>
+  <text x="135" y="199" fill="#374151" font-size="6">Safe email verified</text>
+  
+  <!-- Person at desk -->
+  <circle cx="50" cy="150" r="20" fill="#fbbf24"/>
+  <rect x="35" y="170" width="30" height="40" fill="#3b82f6"/>
+  <rect x="25" y="180" width="50" height="20" fill="#1f2937"/>
+  
+  <!-- Documents on desk -->
+  <rect x="320" y="190" width="60" height="40" fill="white" stroke="#cbd5e1" rx="2"/>
+  <rect x="325" y="195" width="40" height="3" fill="#94a3b8"/>
+  <rect x="325" y="200" width="30" height="2" fill="#cbd5e1"/>
+  <rect x="325" y="205" width="35" height="2" fill="#cbd5e1"/>
+  
+  <!-- Coffee cup -->
+  <ellipse cx="350" cy="175" rx="8" ry="5" fill="#6b7280"/>
+  <rect x="345" y="170" width="10" height="15" rx="2" fill="#d1d5db"/>
+  
+  <!-- Security badge/ID -->
+  <rect x="380" y="160" width="15" height="20" fill="#1e40af" rx="2"/>
+  <rect x="382" y="162" width="11" height="8" fill="white" rx="1"/>
+  <rect x="382" y="172" width="8" height="2" fill="white"/>
+  <rect x="382" y="175" width="6" height="2" fill="white"/>
+</svg>
