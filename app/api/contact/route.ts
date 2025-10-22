@@ -13,12 +13,34 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create transporter using Gmail SMTP
-    const transporter = nodemailer.createTransporter({
+    // Check if email credentials are configured
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.log('Email configuration missing, storing message locally...')
+      
+      // For development: log the message (in production, you'd store in database)
+      console.log('=== CONTACT FORM SUBMISSION ===')
+      console.log('Name:', name)
+      console.log('Email:', email)
+      console.log('Message:', message)
+      console.log('Timestamp:', new Date().toISOString())
+      console.log('==============================')
+      
+      // Return success response even without sending email
+      return NextResponse.json(
+        { 
+          message: 'Message received successfully. Email service is not configured in development mode.',
+          success: true 
+        },
+        { status: 200 }
+      )
+    }
+
+    // Create transporter using Gmail SMTP (only if credentials exist)
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.GMAIL_USER, // Your Gmail address
-        pass: process.env.GMAIL_APP_PASSWORD, // App-specific password
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     })
 
@@ -121,17 +143,42 @@ export async function POST(request: NextRequest) {
       `,
     }
 
-    // Send auto-reply
-    await transporter.sendMail(autoReplyOptions)
+    // Send email
+    try {
+      await transporter.sendMail(mailOptions)
 
-    return NextResponse.json(
-      { message: 'Email sent successfully' },
-      { status: 200 }
-    )
+      // Send auto-reply to sender
+      await transporter.sendMail(autoReplyOptions)
+
+      return NextResponse.json(
+        { message: 'Email sent successfully' },
+        { status: 200 }
+      )
+    } catch (emailError) {
+      console.error('Error sending email:', emailError)
+      
+      // Log the message even if email sending fails
+      console.log('=== CONTACT FORM SUBMISSION (Email failed) ===')
+      console.log('Name:', name)
+      console.log('Email:', email)
+      console.log('Message:', message)
+      console.log('Timestamp:', new Date().toISOString())
+      console.log('Email Error:', emailError)
+      console.log('===============================================')
+      
+      return NextResponse.json(
+        { 
+          message: 'Message received but email delivery failed. Please try again later or contact us directly.',
+          warning: true
+        },
+        { status: 200 }
+      )
+    }
+
   } catch (error) {
-    console.error('Error sending email:', error)
+    console.error('Contact form error:', error)
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Failed to process contact form' },
       { status: 500 }
     )
   }

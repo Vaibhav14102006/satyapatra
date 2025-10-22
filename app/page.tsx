@@ -105,10 +105,16 @@ export default function Home() {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br from-[#00bfff]/20 to-[#8b5cf6]/20 flex items-center justify-center group-hover:from-[#00bfff]/30 group-hover:to-[#8b5cf6]/30 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
+                className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-[#00bfff]/10 to-[#8b5cf6]/10 flex items-center justify-center group-hover:from-[#00bfff]/20 group-hover:to-[#8b5cf6]/20 transition-all duration-300 overflow-hidden"
+                whileHover={{ scale: 1.05 }}
               >
-                <Shield className="w-6 h-6 text-[#00bfff]" />
+                <Image
+                  src="/images/cyber-security-desk.svg"
+                  alt="Advanced Detection"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
               </motion.div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">{t("advancedDetection")}</h3>
               <p className="text-muted-foreground">{t("advancedDetectionDesc")}</p>
@@ -121,10 +127,16 @@ export default function Home() {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br from-[#8b5cf6]/20 to-[#00bfff]/20 flex items-center justify-center group-hover:from-[#8b5cf6]/30 group-hover:to-[#00bfff]/30 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
+                className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-[#8b5cf6]/10 to-[#00bfff]/10 flex items-center justify-center group-hover:from-[#8b5cf6]/20 group-hover:to-[#00bfff]/20 transition-all duration-300 overflow-hidden"
+                whileHover={{ scale: 1.05 }}
               >
-                <Zap className="w-6 h-6 text-[#8b5cf6]" />
+                <Image
+                  src="/images/server-room.svg"
+                  alt="Instant Analysis"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
               </motion.div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">{t("instantAnalysis")}</h3>
               <p className="text-muted-foreground">{t("instantAnalysisDesc")}</p>
@@ -137,10 +149,16 @@ export default function Home() {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-br from-emerald-500/20 to-[#00bfff]/20 flex items-center justify-center group-hover:from-emerald-500/30 group-hover:to-[#00bfff]/30 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
+                className="w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-emerald-500/10 to-[#00bfff]/10 flex items-center justify-center group-hover:from-emerald-500/20 group-hover:to-[#00bfff]/20 transition-all duration-300 overflow-hidden"
+                whileHover={{ scale: 1.05 }}
               >
-                <Lock className="w-6 h-6 text-emerald-500" />
+                <Image
+                  src="/images/office-worker.svg"
+                  alt="Privacy Protection"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
               </motion.div>
               <h3 className="text-lg font-semibold mb-2 text-foreground">{t("privacyFirst")}</h3>
               <p className="text-muted-foreground">{t("privacyFirstDesc")}</p>

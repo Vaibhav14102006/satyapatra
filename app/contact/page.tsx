@@ -3,7 +3,7 @@
 import type React from "react"
 import { Navbar } from "@/components/navbar"
 import { Mail, MessageSquare, Phone, MapPin } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useTranslation } from "@/lib/i18n"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -15,11 +15,106 @@ export default function Contact() {
     email: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error', message: string} | null>(null)
+  const [emailValidation, setEmailValidation] = useState<{isValid: boolean, confidence: number} | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Real-time email validation using ML
+  const validateEmailML = async (email: string) => {
+    if (!email.trim()) {
+      setEmailValidation(null)
+      return
+    }
+
+    try {
+      const response = await fetch('/api/validate-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        setEmailValidation({
+          isValid: result.isValid,
+          confidence: result.confidence
+        })
+      }
+    } catch (error) {
+      console.error('Email validation error:', error)
+      setEmailValidation(null)
+    }
+  }
+
+  // Debounced email validation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (formData.email) {
+        validateEmailML(formData.email)
+      }
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [formData.email])
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    setFormData({ name: "", email: "", message: "" })
+    
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: language === "hi" ? "कृपया सभी फ़ील्ड भरें" : "Please fill in all fields"
+      })
+      return
+    }
+
+    // Check ML email validation
+    if (emailValidation?.isValid === false) {
+      setSubmitStatus({
+        type: 'error',
+        message: language === "hi" ? "कृपया एक मान्य ईमेल पता दर्ज करें" : "Please enter a valid email address"
+      })
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: language === "hi" 
+            ? "आपका संदेश सफलतापूर्वक भेजा गया है! हम जल्द ही आपसे संपर्क करेंगे।"
+            : "Your message has been sent successfully! We'll get back to you soon."
+        })
+        setFormData({ name: "", email: "", message: "" })
+        setEmailValidation(null)
+      } else {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus({
+        type: 'error',
+        message: language === "hi" 
+          ? "संदेश भेजने में त्रुटि हुई। कृपया बाद में पुनः प्रयास करें।"
+          : "Error sending message. Please try again later."
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactMethods = [
@@ -34,12 +129,6 @@ export default function Contact() {
       title: language === "hi" ? "मुख्य फोन" : "Primary Phone",
       value: "+91 75097 02917",
       color: "text-emerald-500"
-    },
-    {
-      icon: Phone,
-      title: language === "hi" ? "कार्यालय फोन" : "Office Phone",
-      value: "+91 98765 43210",
-      color: "text-orange-500"
     },
     {
       icon: MapPin,
@@ -168,13 +257,38 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    <input
-                      type="email"
-                      placeholder={language === "hi" ? "आपका ईमेल" : "Your Email"}
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-background/50 border border-[#00bfff]/30 text-foreground placeholder-muted-foreground focus:outline-none focus:border-[#00bfff] focus:ring-2 focus:ring-[#00bfff]/20 transition-all duration-300"
-                    />
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder={language === "hi" ? "आपका ईमेल" : "Your Email"}
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className={`w-full px-4 py-3 rounded-lg bg-background/50 border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 transition-all duration-300 ${
+                          emailValidation !== null
+                            ? emailValidation.isValid
+                              ? 'border-green-500 focus:border-green-500 focus:ring-green-500/20'
+                              : 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                            : 'border-[#00bfff]/30 focus:border-[#00bfff] focus:ring-[#00bfff]/20'
+                        }`}
+                      />
+                      {emailValidation && (
+                        <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                          {emailValidation.isValid ? (
+                            <div className="text-green-500 text-sm">✓</div>
+                          ) : (
+                            <div className="text-red-500 text-sm">✗</div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    {emailValidation && formData.email && (
+                      <div className={`mt-2 text-xs ${emailValidation.isValid ? 'text-green-500' : 'text-red-500'}`}>
+                        {emailValidation.isValid
+                          ? `${language === "hi" ? "मान्य ईमेल" : "Valid email"} (${(emailValidation.confidence * 100).toFixed(1)}% confidence)`
+                          : `${language === "hi" ? "अमान्य ईमेल" : "Invalid email"} (${(emailValidation.confidence * 100).toFixed(1)}% confidence)`
+                        }
+                      </div>
+                    )}
                   </motion.div>
                   
                   <motion.div
@@ -200,11 +314,41 @@ export default function Contact() {
                   >
                     <button
                       type="submit"
-                      className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-[#00bfff] to-[#8b5cf6] text-white font-semibold hover:from-[#00bfff]/90 hover:to-[#8b5cf6]/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#00bfff]/25"
+                      disabled={isSubmitting || (emailValidation?.isValid === false)}
+                      className={`w-full px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${
+                        isSubmitting || (emailValidation?.isValid === false)
+                          ? 'bg-gray-400 cursor-not-allowed'
+                          : 'bg-gradient-to-r from-[#00bfff] to-[#8b5cf6] text-white hover:from-[#00bfff]/90 hover:to-[#8b5cf6]/90 hover:shadow-[#00bfff]/25'
+                      }`}
                     >
-                      {language === "hi" ? "संदेश भेजें" : "Send Message"}
+                      {isSubmitting 
+                        ? (language === "hi" ? "भेजा जा रहा है..." : "Sending...")
+                        : (language === "hi" ? "संदेश भेजें" : "Send Message")
+                      }
                     </button>
                   </motion.div>
+
+                  {/* Status Messages */}
+                  {submitStatus && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`mt-4 p-4 rounded-lg border ${
+                        submitStatus.type === 'success'
+                          ? 'bg-green-50 border-green-200 text-green-800'
+                          : 'bg-red-50 border-red-200 text-red-800'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        {submitStatus.type === 'success' ? (
+                          <div className="text-green-500">✓</div>
+                        ) : (
+                          <div className="text-red-500">✗</div>
+                        )}
+                        <span className="text-sm">{submitStatus.message}</span>
+                      </div>
+                    </motion.div>
+                  )}
                 </form>
               </div>
             </motion.div>
@@ -277,12 +421,6 @@ export default function Contact() {
                   : "Contact Vaibhav for primary support"
                 }
               </p>
-              <div className="text-xs text-muted-foreground bg-gradient-to-r from-[#8b5cf6]/5 to-emerald-500/5 p-3 rounded-lg border border-[#8b5cf6]/10">
-                {language === "hi" 
-                  ? "प्रोफाइल फोटो जल्द ही अपडेट की जाएंगी" 
-                  : "Profile photos will be updated soon"
-                }
-              </div>
             </div>
           </motion.div>
 

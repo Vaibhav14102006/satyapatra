@@ -5,11 +5,14 @@ import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { ThemeToggle } from "./theme-toggle"
 import { useTranslation } from "@/lib/i18n"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import { useState } from "react"
 
 export function Navbar() {
   const pathname = usePathname()
   const { t } = useTranslation()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const isActive = (path: string) => pathname === path
 
@@ -19,6 +22,14 @@ export function Navbar() {
     { href: "/about", label: t("about") },
     { href: "/contact", label: t("contact") },
   ]
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
 
   return (
     <motion.nav 
@@ -40,7 +51,7 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.div
@@ -72,8 +83,20 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Right side controls */}
-          <div className="flex items-center gap-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Right side controls - Desktop */}
+          <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             
             <motion.div
@@ -89,6 +112,58 @@ export function Navbar() {
             </motion.div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md"
+            >
+              <div className="px-4 py-4 space-y-4">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className={`block py-2 px-4 rounded-lg transition-all duration-300 ${
+                        isActive(item.href)
+                          ? "text-primary font-semibold bg-accent"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                
+                {/* Mobile CTA Button */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.1 }}
+                  className="pt-4"
+                >
+                  <Link
+                    href="/analyze"
+                    onClick={closeMobileMenu}
+                    className="block w-full text-center px-6 py-3 rounded-lg bg-gradient-to-r from-[#00bfff] to-[#8b5cf6] text-white font-semibold hover:from-[#00bfff]/90 hover:to-[#8b5cf6]/90 transition-all duration-300 shadow-lg"
+                  >
+                    {t("getStarted")}
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   )

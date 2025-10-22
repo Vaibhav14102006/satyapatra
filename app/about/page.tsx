@@ -123,6 +123,29 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
+                {/* App Architecture Diagram */}
+                <div className="mb-8 p-6 rounded-xl bg-card/50 border border-[#00bfff]/20 backdrop-blur-sm">
+                  <h3 className="text-xl font-semibold mb-4 text-center bg-gradient-to-r from-[#00bfff] to-[#8b5cf6] bg-clip-text text-transparent">
+                    {language === "hi" ? "SatyaPatra ऐप आर्किटेक्चर" : "SatyaPatra App Architecture"}
+                  </h3>
+                  <div className="flex justify-center">
+                    <Image
+                      src="/images/app-workflow-diagram.svg"
+                      alt={language === "hi" ? "SatyaPatra ऐप कैसे काम करता है" : "How SatyaPatra App Works"}
+                      width={800}
+                      height={600}
+                      className="w-full max-w-4xl h-auto rounded-lg border border-[#00bfff]/10"
+                      priority
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground text-center mt-4">
+                    {language === "hi" 
+                      ? "एक पूरी email security प्रक्रिया का चित्रण - यूजर इनपुट से लेकर AI विश्लेषण और परिणाम तक" 
+                      : "Complete email security workflow - from user input through AI analysis to actionable results"
+                    }
+                  </p>
+                </div>
+                
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
                     <Image
@@ -302,75 +325,6 @@ export default function About() {
                     className="w-full max-w-xs h-auto rounded-lg border border-[#00bfff]/20"
                   />
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Development Team */}
-            <motion.div 
-              className="p-8 rounded-xl bg-gradient-to-r from-[#8b5cf6]/5 to-emerald-500/5 border border-[#8b5cf6]/20 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-[#8b5cf6] to-emerald-500 bg-clip-text text-transparent mb-2">
-                  {language === "hi" ? "विकास टीम" : "Development Team"}
-                </h2>
-                <p className="text-muted-foreground">
-                  {language === "hi" ? "हमारी कुशल डेवलपर टीम" : "Our skilled development team"}
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {[
-                  { name: "Vaibhav", fullName: "Vaibhav Singh Rajawat", role: "Lead Dev", photo: "/images/team/vaibhav.jpg" },
-                  { name: "Aman", fullName: "Aman Dhakar", role: "Frontend", photo: "/images/team/aman.png" },
-                  { name: "Akhilesh", fullName: "Akhilesh", role: "Backend", photo: "/images/team/akhilesh.png" },
-                  { name: "Aditya", fullName: "Aditya", role: "Security", photo: "/images/team/aditya.png" },
-                  { name: "Amandeep", fullName: "Amandeep", role: "DevOps", photo: "/images/team/amandeep.png" }
-                ].map((member, index) => (
-                  <motion.div
-                    key={index}
-                    className="p-4 rounded-lg bg-card/50 border border-[#8b5cf6]/20 hover:border-[#8b5cf6]/40 transition-all duration-300 text-center group"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.3 + index * 0.1 }}
-                    whileHover={{ y: -5 }}
-                  >
-                    {/* Profile Photo */}
-                    <div className="relative w-16 h-16 mx-auto mb-3">
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-[#8b5cf6]/20 to-emerald-500/20 flex items-center justify-center group-hover:from-[#8b5cf6]/30 group-hover:to-emerald-500/30 transition-all duration-300 border-2 border-[#8b5cf6]/20 overflow-hidden">
-                        <Image
-                          src={member.photo}
-                          alt={member.fullName}
-                          width={64}
-                          height={64}
-                          className="w-full h-full object-cover rounded-full"
-                          priority={index < 3}
-                          onError={() => {
-                            console.log(`Failed to load image for ${member.name}`);
-                          }}
-                        />
-                      </div>
-                      {/* Role indicator badge */}
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-[#8b5cf6] to-emerald-500 border-2 border-white rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-foreground text-sm mb-1">{member.fullName}</h3>
-                    <p className="text-xs text-muted-foreground">{member.role}</p>
-                  </motion.div>
-                ))}
-              </div>
-              
-              <div className="mt-6 text-center">
-                <Image
-                  src="/images/government-team.svg"
-                  alt="Development Team"
-                  width={400}
-                  height={250}
-                  className="w-full max-w-md mx-auto h-auto rounded-lg border border-[#8b5cf6]/20"
-                />
               </div>
             </motion.div>
           </motion.div>

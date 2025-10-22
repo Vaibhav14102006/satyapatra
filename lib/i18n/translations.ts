@@ -8,7 +8,7 @@ export const translations = {
     getStarted: "Get Started",
     
     // Home page
-    tagline: "AI-Powered Email Security",
+    tagline: "Advanced Email Security Platform",
     heroTitle: "Detect Phishing Emails Instantly",
     heroSubtitle: "SatyaPatra uses advanced AI to analyze emails and protect you from phishing attacks, spam, and malicious content.",
     startAnalyzing: "Start Analyzing",
@@ -31,7 +31,7 @@ export const translations = {
     
     // About page
     aboutTitle: "About SatyaPatra",
-    aboutSubtitle: "Advanced AI-powered email security for everyone",
+    aboutSubtitle: "Next-generation email security for everyone",
     aboutDescription: "SatyaPatra (सत्यपत्र) means 'Truth Letter' in Hindi. Our mission is to protect users from email-based threats using cutting-edge artificial intelligence and machine learning technologies.",
     
     // Contact page
@@ -63,7 +63,7 @@ export const translations = {
     getStarted: "शुरू करें",
     
     // Home page
-    tagline: "AI-संचालित ईमेल सुरक्षा",
+    tagline: "उन्नत ईमेल सुरक्षा प्लेटफॉर्म",
     heroTitle: "फिशिंग ईमेल तुरंत पहचानें",
     heroSubtitle: "सत्यपत्र उन्नत AI का उपयोग करके ईमेल का विश्लेषण करता है और आपको फिशिंग हमलों, स्पैम और दुर्भावनापूर्ण सामग्री से बचाता है।",
     startAnalyzing: "विश्लेषण शुरू करें",
@@ -86,7 +86,7 @@ export const translations = {
     
     // About page
     aboutTitle: "सत्यपत्र के बारे में",
-    aboutSubtitle: "सभी के लिए उन्नत AI-संचालित ईमेल सुरक्षा",
+    aboutSubtitle: "सभी के लिए नई पीढ़ी की ईमेल सुरक्षा",
     aboutDescription: "सत्यपत्र का अर्थ हिंदी में 'सत्य पत्र' है। हमारा मिशन अत्याधुनिक कृत्रिम बुद्धिमत्ता और मशीन लर्निंग तकनीकों का उपयोग करके उपयोगकर्ताओं को ईमेल-आधारित खतरों से बचाना है।",
     
     // Contact page
